@@ -1,6 +1,7 @@
 package co.com.mercadolibre.articulos.logic.services.Impl;
 
 import co.com.mercadolibre.articulos.commons.dtos.ArticleDto;
+import co.com.mercadolibre.articulos.commons.util.Util;
 import co.com.mercadolibre.articulos.logic.gateways.IArticlesGateway;
 import co.com.mercadolibre.articulos.logic.gateways.Impl.ArticlesGatewayImpl;
 import co.com.mercadolibre.articulos.logic.services.IArticlesServices;
@@ -29,8 +30,10 @@ public class ArticleServicesImpl implements IArticlesServices {
     ///////////////////////////////////////////////
 
     @Override
-    public List<ArticleDto> getArticlesFromApi(int page, int limit) {
-        return articlesGateway.getArticlesApiSpaceflight(page, limit);
+    public List<ArticleDto> getArticlesFromApi(int pageSize, int page) {
+        List<ArticleDto> articlesList = articlesGateway.getArticlesApiSpaceflight();
+        List<List<ArticleDto>> articlesPages = Util.getPages(articlesList, pageSize);
+        return articlesPages.get(page);
     }
 
 }

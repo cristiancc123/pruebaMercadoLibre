@@ -1,6 +1,7 @@
 package co.com.mercadolibre.articulos.logic.gateways.Impl;
 
 import co.com.mercadolibre.articulos.commons.dtos.ArticleDto;
+import co.com.mercadolibre.articulos.commons.util.Util;
 import co.com.mercadolibre.articulos.controllers.IArticlesController;
 import co.com.mercadolibre.articulos.logic.gateways.IArticlesGateway;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -37,18 +39,18 @@ public class ArticlesGatewayImpl implements IArticlesGateway {
     @Value("${spaceflight.url}")
     private String urlSpaceflight;
 
-
     ///////////////////////////////////////////////
     //                MÉTODOS                    //
     ///////////////////////////////////////////////
 
     @Override
-    public List<ArticleDto> getArticlesApiSpaceflight(int page, int limit) {
+    @Cacheable(value = "articles", key = "#root.method.name")
+    public List<ArticleDto> getArticlesApiSpaceflight() {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(urlSpaceflight)
-                .queryParam("_limit", limit)
-                .queryParam("_start", page);
+                .queryParam("_limit", 500);
         ResponseEntity<List<ArticleDto>> response = restTemplate.exchange(uriBuilder.toUriString(), HttpMethod.GET, null, new ParameterizedTypeReference<List<ArticleDto>>() {});
         List<ArticleDto> articlesList = response.getBody();
         return articlesList;
     }
+
 }
