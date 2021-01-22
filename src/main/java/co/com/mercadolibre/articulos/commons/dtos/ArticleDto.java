@@ -2,11 +2,12 @@ package co.com.mercadolibre.articulos.commons.dtos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import org.joda.time.DateTime;
-
 import java.io.Serializable;
-import java.util.List;
 
+
+/**
+ * Clase que define un articulo
+ */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ArticleDto implements Serializable {
@@ -17,10 +18,13 @@ public class ArticleDto implements Serializable {
 
     private static final long serialVersionUID = 715145862883281623L;
 
+    /** Titulo del articulo */
     private String title;
 
+    /** Url del articulo */
     private String url;
 
+    /** url de la imagen del articulo */
     private String imageUrl;
 
 }

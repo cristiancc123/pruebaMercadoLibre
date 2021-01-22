@@ -2,11 +2,8 @@ package co.com.mercadolibre.articulos.commons.util;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.IntStream;
 
-import static java.lang.Integer.min;
-import static java.util.stream.Collectors.toMap;
-
+/** Clase que permite realizar acciones utiles y que son generales para el proyecto */
 public class Util {
 
     /**
@@ -26,6 +23,7 @@ public class Util {
      * Metodo que permite paginar una lista
      * @param c representa a la lista,
      * @param pageSize tamanio de la pagina
+     * @return returna una lista agrupada por pagina
      */
     public static <T> List<List<T>> getPages(Collection<T> c, Integer pageSize) {
         if (c == null)

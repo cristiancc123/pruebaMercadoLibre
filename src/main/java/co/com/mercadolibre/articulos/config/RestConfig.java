@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
+/** Clase de configuracion para el consumo de servicios Rest */
 @Configuration
 public class RestConfig {
 

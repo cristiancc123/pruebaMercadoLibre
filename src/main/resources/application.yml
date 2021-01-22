@@ -10,10 +10,14 @@ spring:
     driverClassName: org.h2.Driver
   cache:
     type: redis
+    cache-names: articlesCache
+    redis:
+      time-to-live: 300000
   redis:
     host: localhost
     port: 6379
 
 spaceflight:
   url: "https://test.spaceflightnewsapi.net/api/v2/articles"
+  limit: 300
 
