@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IArticlesGateway {
 
-    public List<ArticleDto> getArticlesApiSpaceflight();
+    public List<ArticleDto> getArticlesApiSpaceflight(int page, int limit);
 
 }

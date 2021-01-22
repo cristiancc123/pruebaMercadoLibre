@@ -3,17 +3,24 @@ package co.com.mercadolibre.articulos.logic.gateways.Impl;
 import co.com.mercadolibre.articulos.commons.dtos.ArticleDto;
 import co.com.mercadolibre.articulos.controllers.IArticlesController;
 import co.com.mercadolibre.articulos.logic.gateways.IArticlesGateway;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -36,8 +43,11 @@ public class ArticlesGatewayImpl implements IArticlesGateway {
     ///////////////////////////////////////////////
 
     @Override
-    public List<ArticleDto> getArticlesApiSpaceflight() {
-        ResponseEntity<List<ArticleDto>> response = restTemplate.exchange(urlSpaceflight, HttpMethod.GET, null, new ParameterizedTypeReference<List<ArticleDto>>() {});
+    public List<ArticleDto> getArticlesApiSpaceflight(int page, int limit) {
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(urlSpaceflight)
+                .queryParam("_limit", limit)
+                .queryParam("_start", page);
+        ResponseEntity<List<ArticleDto>> response = restTemplate.exchange(uriBuilder.toUriString(), HttpMethod.GET, null, new ParameterizedTypeReference<List<ArticleDto>>() {});
         List<ArticleDto> articlesList = response.getBody();
         return articlesList;
     }

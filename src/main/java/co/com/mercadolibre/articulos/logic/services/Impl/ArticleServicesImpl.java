@@ -1,6 +1,7 @@
 package co.com.mercadolibre.articulos.logic.services.Impl;
 
 import co.com.mercadolibre.articulos.commons.dtos.ArticleDto;
+import co.com.mercadolibre.articulos.logic.gateways.IArticlesGateway;
 import co.com.mercadolibre.articulos.logic.gateways.Impl.ArticlesGatewayImpl;
 import co.com.mercadolibre.articulos.logic.services.IArticlesServices;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class ArticleServicesImpl implements IArticlesServices {
     ///////////////////////////////////////////////
 
     @Autowired
-    private ArticlesGatewayImpl articlesGateway;
+    private IArticlesGateway articlesGateway;
 
 
     ///////////////////////////////////////////////
@@ -28,8 +29,8 @@ public class ArticleServicesImpl implements IArticlesServices {
     ///////////////////////////////////////////////
 
     @Override
-    public List<ArticleDto> getArticlesFromApi() {
-        return articlesGateway.getArticlesApiSpaceflight();
+    public List<ArticleDto> getArticlesFromApi(int page, int limit) {
+        return articlesGateway.getArticlesApiSpaceflight(page, limit);
     }
 
 }

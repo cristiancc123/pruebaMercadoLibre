@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IArticlesServices {
 
-    public List<ArticleDto> getArticlesFromApi();
+    public List<ArticleDto> getArticlesFromApi(int page, int limit);
 
 }

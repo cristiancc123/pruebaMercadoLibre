@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IArticlesController {
 
-    public ResponseEntity<?> getArticles();
+    public ResponseEntity<?> getArticles(int page, int limit);
 
 }
