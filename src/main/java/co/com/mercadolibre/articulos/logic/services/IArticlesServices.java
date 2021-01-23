@@ -1,6 +1,7 @@
 package co.com.mercadolibre.articulos.logic.services;
 
 import co.com.mercadolibre.articulos.commons.dtos.ArticleDto;
+import co.com.mercadolibre.articulos.commons.dtos.ArticlePagesDto;
 
 import java.util.List;
 
@@ -12,6 +13,6 @@ public interface IArticlesServices {
      * @param page numero de la pagina a devolver
      * @return listado de articulos
      */
-    public List<ArticleDto> getArticlesFromApi(int pageSize, int page);
+    public ArticlePagesDto getArticlesFromApi(int pageSize, int page);
 
 }

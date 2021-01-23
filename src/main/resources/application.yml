@@ -20,4 +20,6 @@ spring:
 spaceflight:
   url: "https://test.spaceflightnewsapi.net/api/v2/articles"
   limit: 300
+server:
+  port: 80
 
