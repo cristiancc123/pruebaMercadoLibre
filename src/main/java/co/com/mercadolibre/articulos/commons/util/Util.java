@@ -7,19 +7,6 @@ import java.util.*;
 public class Util {
 
     /**
-     * Metodo que dado una excepcion devuelve un string correspondiente
-     * Este metodo es util para loggear excepciones
-     * @param exception Excepcion cuya stacktrace se convertira a string
-     * @return Devuelve el string del stacktrace respectivo
-     */
-    public static String getStackTrace(Exception exception) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        exception.printStackTrace(pw);
-        return sw.toString();
-    }
-
-    /**
      * Metodo que permite paginar una lista
      * @param c representa a la lista,
      * @param pageSize tamanio de la pagina

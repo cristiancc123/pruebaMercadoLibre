@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 /** Clase controladora para la gestión de los articulos */
 @Slf4j
@@ -47,8 +46,7 @@ public class ArticlesController {
             return new ResponseEntity<>(articlesPages, HttpStatus.OK);
         }catch (Exception ex){
             String message = "Se presento un error al consultar los articulos";
-            log.error(message);
-            log.error(Util.getStackTrace(ex));
+            log.error(message, ex);
             return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
