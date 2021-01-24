@@ -1,1 +1,1 @@
-web: java -jar target/articulos-0.0.1-SNAPSHOT.war
+worker: java -jar target/*.jar
