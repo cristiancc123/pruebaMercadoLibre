@@ -1,1 +1,1 @@
-web: java -jar target/articulos-0.0.1-SNAPSHOT.war
+web: java -jar $JAVA_OPTS -cp target/classes:target/dependency/*
