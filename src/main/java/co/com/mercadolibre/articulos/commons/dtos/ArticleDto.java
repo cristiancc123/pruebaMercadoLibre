@@ -1,6 +1,7 @@
 package co.com.mercadolibre.articulos.commons.dtos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.io.Serializable;
 
@@ -9,6 +10,7 @@ import java.io.Serializable;
  * Clase que define un articulo
  */
 @Data
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ArticleDto implements Serializable {
 
