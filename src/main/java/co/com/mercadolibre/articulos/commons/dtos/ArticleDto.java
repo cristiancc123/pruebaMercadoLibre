@@ -10,7 +10,6 @@ import java.io.Serializable;
  * Clase que define un articulo
  */
 @Data
-@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ArticleDto implements Serializable {
 
