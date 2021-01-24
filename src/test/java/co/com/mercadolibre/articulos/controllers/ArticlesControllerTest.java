@@ -33,26 +33,26 @@ public class ArticlesControllerTest {
     @MockBean
     private ArticleServicesImpl articleServices;
 
-//    ArticlePagesDto mockArticlesPages = new ArticlePagesDto(Arrays.asList(new ArticleDto("6007d5cc858d39001c60635a","Boeing making progress on Starliner software for test flight in March","https://spaceflightnow.com/2021/01/18/boeing-making-progress-on-starliner-software-for-test-flight-in-march/","https://mk0spaceflightnoa02a.kinstacdn.com/wp-content/uploads/2021/01/KSC-20210113-PH-BOE01_0002medium.jpg")),300);
-//
-//
-//    @Test
-//    public void getArticles() throws Exception {
-//
-//        Mockito.when(articleServices.getArticlesFromApi(Mockito.anyInt(),
-//                                                        Mockito.anyInt())).thenReturn(mockArticlesPages);
-//
-//        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
-//                "/api/v2/articles?pageSize=1&page=1").accept(
-//                MediaType.APPLICATION_JSON);
-//
-//        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-//
-//        System.out.println(result.getResponse());
-//        String expected = "{ \"articles\": [{\"title\": \"Boeing making progress on Starliner software for test flight in March\",\"url\": \"https://spaceflightnow.com/2021/01/18/boeing-making-progress-on-starliner-software-for-test-flight-in-march/\",\"imageUrl\": \"https://mk0spaceflightnoa02a.kinstacdn.com/wp-content/uploads/2021/01/KSC-20210113-PH-BOE01_0002medium.jpg\"} ], \"totalPages\": 300 }";;
-//
-//        JSONAssert.assertEquals(expected, result.getResponse()
-//                .getContentAsString(), false);
-//    }
+    ArticlePagesDto mockArticlesPages = new ArticlePagesDto(Arrays.asList(new ArticleDto("6007d5cc858d39001c60635a","Boeing making progress on Starliner software for test flight in March","https://spaceflightnow.com/2021/01/18/boeing-making-progress-on-starliner-software-for-test-flight-in-march/","https://mk0spaceflightnoa02a.kinstacdn.com/wp-content/uploads/2021/01/KSC-20210113-PH-BOE01_0002medium.jpg")),300);
+
+
+    @Test
+    public void getArticles() throws Exception {
+
+        Mockito.when(articleServices.getArticlesFromApi(Mockito.anyInt(),
+                                                        Mockito.anyInt())).thenReturn(mockArticlesPages);
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+                "/api/v2/articles?pageSize=1&page=1").accept(
+                MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+        System.out.println(result.getResponse());
+        String expected = "{ \"articles\": [{\"title\": \"Boeing making progress on Starliner software for test flight in March\",\"url\": \"https://spaceflightnow.com/2021/01/18/boeing-making-progress-on-starliner-software-for-test-flight-in-march/\",\"imageUrl\": \"https://mk0spaceflightnoa02a.kinstacdn.com/wp-content/uploads/2021/01/KSC-20210113-PH-BOE01_0002medium.jpg\"} ], \"totalPages\": 300 }";;
+
+        JSONAssert.assertEquals(expected, result.getResponse()
+                .getContentAsString(), false);
+    }
 
 }

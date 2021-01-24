@@ -7,10 +7,11 @@ spring:
   redis:
     host: pb1b615de71b5608a7358f93772d8ed31cf284c41be383a8a0783a55f90c5cbc4@ec2-35-168-212-243.compute-1.amazonaws.com
     port: 21509
+#    host: localhost
+#    port: 6379
 
 spaceflight:
   url: "https://test.spaceflightnewsapi.net/api/v2/articles"
   limit: 300
-#server:
-#  port: ${PORT:8080}
+
 

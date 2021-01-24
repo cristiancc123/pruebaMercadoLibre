@@ -31,4 +31,13 @@ public class ArticleDto implements Serializable {
     /** url de la imagen del articulo */
     private String imageUrl;
 
+    public ArticleDto() {
+    }
+
+    public ArticleDto(String id, String title, String url, String imageUrl) {
+        this.id = id;
+        this.title = title;
+        this.url = url;
+        this.imageUrl = imageUrl;
+    }
 }
